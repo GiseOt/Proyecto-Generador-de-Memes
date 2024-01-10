@@ -4,53 +4,207 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <title>Generador de Memes </title>
+    <title>Generador de Memes</title>
     
 </head>
-<body class="body">
+<body class="body modo--Claro modo--Oscuro">
     <!-- <div> -->
     <header><!-- Titulo -->
         <h1>Generador de Memes</h1>
-        <button>Modo Claro</button>
-        <button>Modo Oscuro</button>
+        <button>Modo Claro</button><!-- poner iconito y ver el modo display none-->
+        <button>Modo Oscuro</button><!-- poner iconito -->
     </header>
     <div class="caja"><!-- Div Padre -->
         <main><!-- Caja texto, img, texto y boton de descarga -->
             <h2 class="txt__arriba">Top Text</h2>
-            <div src="" alt="" class="imgamen" id="imagen">Aca va la imagen</div>
+            <div src="" alt="" class="imgamen" id="imagen">Aca va la imagen</div><!-- CAJA DE IMAGEN -->
             <h2 class="txt__abajo">Bottom Text</h2>
-            <button class="btn-__descarga" id="btn--descarga">Descargar meme</button>
-    </main>
+            <button class="btn-__descarga" id="btn--descarga"><i class="fa-solid fa-download"></i> Descargar meme</button><!-- poner -->
+        </main>
     <aside class="panel__generador"><!-- Panel derecho-->
         <div class="btn-modos">
             <button  class="cerrar__btn">x</button>
-            <button >Imagen</button>
-            <button>Texto</button>
+            <button class="imagen"><i class="fa-regular fa-image"></i></button>
+            <button><i class="fa-solid fa-font"></i></button>
         
-    </div>
+         </div>
         <section class="imagen__aside"><!-- Seccion IMAGEN -->
-            <h3 class="titulo__panel__imagen">IMAGEN</h3>
-            <p class="panel-control-title">Aquí URL </p>
-            <input type="text" class="url__imagen">
+            <div class="url__subirArchivo">
+                <h3 class="titulo__panel__imagen">IMAGEN</h3>
+                <p class="panel-control-title">Aquí URL </p>
+                <input type="text"
+                class="url__imagen">
+                <label for="fileInput">Cargar Imagen:</label>
+                <input
+                type="file"
+                name="file"
+                id="fileInput"
+                accept="image/png, image/gif, image/jpeg"/>
+            </div>
+            
             
             <div class="caja__fondos">
-            
-                </div>
-            
-            </div>
-            
-            <div class="caja__filtros">
-
-            </div>
-
-        </section> <section class="texto__aside"><!-- seccion TEXTO-->
-        
-            <div class="texto__superior__inferior"><!-- seccion TEXTO superior/inferior-->
-            
-            </div>
-            
-            <div class="texto__fuente"><!-- seccion fuente-->
+                <h3>FONDO</h3>
+                <div class="fondo__imagen">
+                    <input type="color" name="color" id="inputColor" value="#80BCBD">
+                    <span id="fondo__seleccion" >#80BCBD</span>
                 
+                <select class="mezcla__fondo"><!-- Buscar valores!!! -->
+                    <option class="fondo__ninguno" value="#">Ninguno</option>
+                    <option class="fondo__aclarar" value="#">Aclarar</option>
+                    <option class="fondo__oscurecer" value="#">Oscurecer</option>
+                    <option class="fondo__diferencia" value="#">Diferencia</option>
+                    <option class="fondo__luminosidad" value="#">Luminosidad</option>
+                    <option class="fondo__multiplicar" value="#">Multiplicar</option>
+                </select>
+                </div>
+            </div>
+            
+            <div class="caja__filtros"><!--Filtros-->
+                <h3>FILTROS</h3>
+
+                <div class="filtros__label">
+                    <label for="brillo">Brillo:</label>
+                    <input type="range" 
+                    id="brillo" 
+                    name="brightness"
+                    min="0" 
+                    max="1" 
+                    step="0.1"
+                    value="1">
+                </div>
+                <div class="filtros__label">
+                    <label for="opacidad">Opacidad:</label>
+                    <input type="range" 
+                    id="opacidad" 
+                    name="opacidad" 
+                    min="0"
+                    max="1" 
+                    step="0.1" 
+                    value="1">
+                </div>
+                <div class="filtros__label">
+                    <label for="contraste">Contraste:</label>
+                    <input type="range" 
+                    id="contraste"
+                    name="contraste" 
+                    min="100" 
+                    max="1000" 
+                    step="1" 
+                    value="100">
+                </div>
+                <div class="filtros__label">
+                    <label for="rango">Desenfoque:</label>
+                    <input type="range" 
+                    id="rango" 
+                    name="rango" 
+                    min="0" 
+                    max="10" 
+                    step="0.1" 
+                    value="0"> 
+                </div>
+                <div class="filtros__label">
+                    <label for="grises">Escala de grises:</label>
+                    <input type="range" 
+                    id="grises" 
+                    name="grises" 
+                    min="0" 
+                    max="100" 
+                    step="1" 
+                    value="0">
+                </div>
+                <div class="filtros__label">
+                    <label for="sepia">Sepia:</label>
+                    <input type="range"
+                    id="sepia" 
+                    name="sepia" 
+                    min="0" 
+                    max="100" 
+                    step="1" 
+                    value="0">
+                </div>
+                <div class="filtros__label">
+                    <label for="hue">Hue:</label>
+                    <input type="range" 
+                    id="hue" 
+                    name="hue" 
+                    min="0" 
+                    max="359" 
+                    step="1" 
+                    value="0">
+                </div>
+                <div class="filtros__label">
+                    <label for="saturacion">Saturación:</label>
+                    <input type="range" 
+                    id="saturacion" 
+                    name="saturacion" 
+                    min="100" 
+                    max="1000" 
+                    step="10" 
+                    value="100">
+                </div>
+                <div class="filtros__label">
+                    <label for="negativo">Negativo:</label>
+                    <input type="range" 
+                    id="negativo" 
+                    name="negativo" 
+                    min="0" 
+                    max="1" 
+                    step="0.1" 
+                    value="1">
+                </div>
+                <button class="btn__restablecer" id="restablecer__filtros"><i class="fa-solid fa-arrows-rotate"></i> Restablecer Filtros</button>
+            </div>
+
+        </section> 
+        <section class="texto__aside"><!-- seccion TEXTO-->
+            <h3>TEXTO</h3>
+            <div class="texto__superior"><!-- seccion TEXTO superior-->
+                <textarea name="texto__superior" 
+                id="texto__superior" 
+                class="texto__superior" 
+                placeholder="TEXTO SUPERIOR"></textarea>
+            <div class="texto__superior__inferior"><!-- tilde SIN TEXTO SUPERIOR con ckeckbox-->
+                <input type="checkbox" 
+                id="checkbox__texto--superior">
+                <label for="checkbox__texto--superior">Sin texto
+                superior</label>
+            </div>
+        </div>
+        <div class="texto__inferior"><!-- seccion TEXTO inferior-->
+            <textarea
+            name="texto__inferior"
+            id="texto__inferior"
+            class="texto__inferior"
+            placeholder="TEXTO INFERIOR">
+</textarea>
+            <div class="texto__superior__inferior"><!-- tilde SIN TEXTO INFERIOR con ckeckbox-->
+                <input type="checkbox" 
+                id="checkbox__texto--inferior">
+                <label for="checkbox__texto--inferior">Sin texto
+               inferior</label>
+            </div>
+        </div>
+            <div class="texto__fuente"><!-- seccion FUENTE-->
+              <h3>FUENTES</h3>  
+              <select name="fuente" id="fuente">
+                <option value="Verdana">Verdana</option>
+                <option value="Helvetica" selected>Helvetica</option>
+                <option value="American Typewriter">American Typewriter</option>
+                <option value="Andale Mono">Andale Mono</option>
+                <option value="Comic Sans MS">Comic Sans</option>
+                <option value="Impact">Impact</option>
+              </select>
+            
+              <h3>Tamaño de texto</h3>
+              <input type="number" name="tamaño__texto" class="tamaño__texto" id="tamaño__texto--id" min="12"
+              value="20" />
+
+              <div class="opciones-alineacion">
+                <button class="bnt__alineacion--izq"><i class="fa-solid fa-align-left"></i></button>
+                <button class="bnt__alineacion--cent"><i class="fa-solid fa-align-center"></i></button>
+                <button class="bnt__alineacion--der"><i class="fa-solid fa-align-right"></i></button>
+              </div>
             </div>
 
             <div class="texto__color"><!-- seccion color-->
@@ -73,6 +227,9 @@
 
     </aside>
 </div>
+<!--script Iconos-->
+<script src="https://kit.fontawesome.com/04baa38fa8.js" crossorigin="anonymous"></script> 
+<!--script main.js-->
 <script src="main.js"></script>
 </body>
 </html>
