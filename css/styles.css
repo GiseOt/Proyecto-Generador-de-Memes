@@ -3,3 +3,65 @@
     margin: 0;
     box-sizing: border-box;
 }
+body{
+    background-color:rgb(61, 44, 141);
+    display: flex;
+    flex-direction: column;
+    padding-inline: 20px;
+}
+/*body modo claro
+body{
+    background-color : rgb(253, 247, 228);
+}*/
+
+/* HEADER */
+header{
+    background-color:rgb(28, 12, 91);
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px;
+
+
+}
+
+/*Div padre*/
+.caja{
+    /*  background-color:rgb(255, 185, 150) ;*/
+    display: flex;
+    flex-direction: column;
+    margin-block: 20px;
+    text-align: center;
+}
+
+h1{
+    margin-top: 10px;
+}
+
+/* CAJA DEL MEME ***MAIN****/
+.caja__meme {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.caja__meme h2{
+    background-color: white;
+}
+/* CAJA DONDE VA LA IMAGEN */
+.imgamen {
+    width:290px; 
+    height: 250px; 
+    background-color: rgb(21, 21, 21); 
+    margin: auto;
+}
+
+.caja__meme button{
+    margin-top: 20px;
+}

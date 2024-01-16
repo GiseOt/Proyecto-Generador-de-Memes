@@ -11,14 +11,16 @@
     <!-- <div> -->
     <header><!-- Titulo -->
         <h1>Generador de Memes</h1>
-        <button>Modo Claro</button><!-- poner iconito y ver el modo display none-->
-        <button>Modo Oscuro</button><!-- poner iconito -->
+        <button><i class="fa-regular fa-sun"></i></button><!-- poner iconito y ver el modo display none-->
+        <button><i class="fa-regular fa-moon"></i></button><!-- poner iconito -->
     </header>
     <div class="caja"><!-- Div Padre -->
-        <main><!-- Caja texto, img, texto y boton de descarga -->
-            <h2 class="txt__arriba">Top Text</h2>
+        <main class="caja__meme"><!-- Caja texto, img, texto y boton de descarga -->
+        <div class="meme__texto__imagen">
+        <h2 class="txt__arriba">Top Text</h2>
             <div src="" alt="" class="imgamen" id="imagen">Aca va la imagen</div><!-- CAJA DE IMAGEN -->
-            <h2 class="txt__abajo">Bottom Text</h2>
+            <h2 class="txt__abajo ">Bottom Text</h2>
+        </div>
             <button class="btn-__descarga" id="btn--descarga"><i class="fa-solid fa-download"></i> Descargar meme</button><!-- poner -->
         </main>
     <aside class="panel__generador"><!-- Panel derecho-->
@@ -166,8 +168,8 @@
                 placeholder="TEXTO SUPERIOR"></textarea>
             <div class="texto__superior__inferior"><!-- tilde SIN TEXTO SUPERIOR con ckeckbox-->
                 <input type="checkbox" 
-                id="checkbox__texto--superior">
-                <label for="checkbox__texto--superior">Sin texto
+                id="sin__texto--superior">
+                <label for="sin__texto--superior">Sin texto
                 superior</label>
             </div>
         </div>
@@ -180,9 +182,9 @@
 </textarea>
             <div class="texto__superior__inferior"><!-- tilde SIN TEXTO INFERIOR con ckeckbox-->
                 <input type="checkbox" 
-                id="checkbox__texto--inferior">
+                id="sin__texto--inferior">
                 <label for="checkbox__texto--inferior">Sin texto
-               inferior</label>
+                inferior</label>
             </div>
         </div>
             <div class="texto__fuente"><!-- seccion FUENTE-->
@@ -207,20 +209,56 @@
               </div>
             </div>
 
-            <div class="texto__color"><!-- seccion color-->
+            <div class="texto__color panel"><!-- seccion color-->
+                <div>
+                    <h3>COLOR</h3>
+                        <input type="color" 
+                        name="color" 
+                        id="color" 
+                        value="#80BCBD">
+                </div>
+                <div>
+                    <h3>FONDO</h3>
+                        <input type="color" 
+                        name="color" 
+                        id="fondo__color" 
+                        value="#80BCBD">
+                </div>
+                    <input type="checkbox" 
+                    id="checkbox__texto--inferior">
+                    <label for="checkbox__texto--inferior">Fondo Transparente
+                    </label>
+                </div>
+
+            <div class="texto__contorno panel"><!-- seccion contorno-->
+                <h3 class="contorno">CONTORNO</h3>
+                <button class="contorno" id="contorno__ninguno">Ninguno</button>
+                <button class="contorno" id="contorno__claro">Claro</button>
+                <button class="contorno" id="contorno__oscuro">Oscuro</button>
+
                 
             </div>
 
-            <div class="texto__contorno"><!-- seccion contorno-->
-                
+            <div class="texto__espaciado panel"><!-- seccion espaciado-->
+                <h3>ESPACIADO</h3>
+                <input type="number"
+                class="espaciado__texto"
+                id="espaciado__txt"
+                name="espaciado"
+                min="10"
+                max="50"
+                value="15">
             </div>
 
-            <div class="texto__espaciado"><!-- seccion espaciado-->
-                
-            </div>
-
-            <div class="texto__interlineado"><!-- seccion interlineado-->
-                
+            <div class="texto__interlineado panel"><!-- seccion interlineado-->
+                <h3>INTERLINEADO</h3>
+                <select name="interlineado" id="interlineado__texto" class="interlineado__texto">
+                    <option value="0.8">0.8</option>
+                    <option value="1">1</option>
+                    <option value="1.5" selected>1.5</option>
+                    <option value="2">2</option>
+                    <option value="2.2">2.5</option>
+                </select>
             </div>
 
         </section>
