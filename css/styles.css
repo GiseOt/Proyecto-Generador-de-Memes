@@ -1,20 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', serif;
 }
-body{
+
+/* MODOS CLARO Y OSCURO*/
+.modo--Oscuro{
     background-color:rgb(61, 44, 141);
     display: flex;
     flex-direction: column;
     padding-inline: 20px;
+    color: white;
 }
-/*body modo claro
-body{
-    background-color : rgb(253, 247, 228);
-}*/
+.modo--Claro
+{
+    background-color:white;
+    display: flex;
+    flex-direction: column;
+    padding-inline: 20px;
+    color: white;
+}
 
-/* HEADER */
+
+  /* HEADER */
 header{
     background-color:rgb(28, 12, 91);
     width: calc(100% + 40px);
@@ -24,14 +34,16 @@ header{
     align-items: center;
     justify-content: center;
     gap: 15px;
-    margin-bottom: 50px;
-
-
+    margin-bottom: 30px;
+}
+.modo--claro__header{
+    background-color:rgb(145, 107, 191) ;
+    
 }
 
-/*Div padre*/
+/*DIV PADRE*/
 .caja{
-    /*  background-color:rgb(255, 185, 150) ;*/
+/*  background-color:rgb(255, 185, 150) ;*/
     display: flex;
     flex-direction: column;
     margin-block: 20px;
@@ -39,29 +51,144 @@ header{
 }
 
 h1{
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
-/* CAJA DEL MEME ***MAIN****/
+.h2_indicacion{
+    font-size: 1rem;
+}
+
+  /* CAJA DEL MEME ***MAIN****/
 .caja__meme {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    margin-block: 65px;
 }
 
 .caja__meme h2{
-    background-color: white;
+    color: black;
+    background-color:rgb(229, 225, 218);
 }
-/* CAJA DONDE VA LA IMAGEN */
-.imgamen {
+
+  /* CAJA DONDE VA LA IMAGEN */
+.imagen__clase {
     width:290px; 
     height: 250px; 
     background-color: rgb(21, 21, 21); 
-    margin: auto;
+    margin: auto ;
+    background-size: cover; /* Ajusta según tus necesidades */
+    background-position: center; /* Ajusta según tus necesidades */
+    background-repeat: no-repeat;
 }
 
-.caja__meme button{
-    margin-top: 20px;
+/* BOTON DE DESCARGA*/
+.caja button {
+    margin: 20px;
+    width: 130px;
+    height: 45px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+                    7px 7px 20px 0px rgba(0,0,0,.1),
+                    4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+}
+
+.btn__descarga {
+    border: none;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.btn__descarga:after {
+    position: absolute;
+    content: " ";
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1fd1f9;
+    background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
+    transition: all 0.3s ease;
+}
+
+.btn__descarga:hover {
+    background: transparent;
+    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+                -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+    color: #fff;
+}
+
+.btn__descarga:hover:after {
+    -webkit-transform: scale(2) rotate(180deg);
+    transform: scale(2) rotate(180deg);
+    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+                -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+}
+
+/*ASIDE -- PANELES claro/oscuro----*/
+aside {
+    background-color:rgb(145, 107, 191) ;  
+}
+
+/*PANEL SECCIONES*/
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-block: 20px;
+}
+
+/* Todos los divs de Seccion mismo diseño*/
+section div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* BOTON DE CIERRE PANEL*/
+.btn-cerrar{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-cerrar button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 8px;
+}
+
+/*BOTON PARA RESTABLECER FILTRO */
+.caja__filtros button {
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.btn-modos button{
+    width: 25px;
+    height:25px;
+    margin-bottom: 5px;
+    border: none;
+    background: rgb(174,214,238);
+background: radial-gradient(circle, rgba(174,214,238,0.9780287114845938) 29%, rgba(148,187,233,1) 85%);
 }

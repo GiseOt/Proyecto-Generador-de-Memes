@@ -5,32 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <title>Generador de Memes</title>
-    
+    <!-- dom-to-image-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"
+    integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+
+<!-- FileSaver.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"
+    integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+
 </head>
-<body class="body modo--Claro modo--Oscuro">
-    <!-- <div> -->
-    <header><!-- Titulo -->
-        <h1>Generador de Memes</h1>
-        <button><i class="fa-regular fa-sun"></i></button><!-- poner iconito y ver el modo display none-->
-        <button><i class="fa-regular fa-moon"></i></button><!-- poner iconito -->
-    </header>
-    <div class="caja"><!-- Div Padre -->
-        <main class="caja__meme"><!-- Caja texto, img, texto y boton de descarga -->
-        <div class="meme__texto__imagen">
-        <h2 class="txt__arriba">Top Text</h2>
-            <div src="" alt="" class="imgamen" id="imagen">Aca va la imagen</div><!-- CAJA DE IMAGEN -->
-            <h2 class="txt__abajo ">Bottom Text</h2>
+<body class="body modo--Claro">
+        <header class="modo--claro__header modo--oscuro__header"><!-- Titulo -->
+            <h1>Generador de Memes</h1>
+            <div class="btn-modos">
+                <button class="imagen"><i class="fa-regular fa-image"></i></button>
+                <button class="texto"><i class="fa-solid fa-font"></i></button>
+                <button class="claro" id="modo-claro"><i class="fa-regular fa-sun"></i></button><!-- poner iconito y ver el modo display none-->
+            <button class="oscuro" id="modo-oscuro"><i class="fa-regular fa-moon"></i></button><!-- poner iconito -->
+            </div>
+        </header>
+    <main class="caja"><!-- Div Padre -->
+        <div class="caja__meme"><!-- Caja texto, img, texto y boton de descarga -->
+            <div class="meme__texto__imagen" id="imagen-container">
+                <h2 class="txt__arriba">Texto de Arriba</h2>
+                <div src="" alt="foto de tu meme" class="imagen__clase" id="imagen"></div><!-- CAJA DE IMAGEN -->
+                <h2 class="txt__abajo ">Texto de Abajo</h2>
+            </div>
+            <button class="btn__descarga" id="btn--descarga"><i class="fa-solid fa-download"></i> Descargar meme</button><!-- poner -->
+    </div>
+    <aside class="panel__generador" ><!-- Panel derecho-->
+        <div class="btn-cerrar">
+            <button  class="cierre__boton">x</button>
         </div>
-            <button class="btn-__descarga" id="btn--descarga"><i class="fa-solid fa-download"></i> Descargar meme</button><!-- poner -->
-        </main>
-    <aside class="panel__generador"><!-- Panel derecho-->
-        <div class="btn-modos">
-            <button  class="cerrar__btn">x</button>
-            <button class="imagen"><i class="fa-regular fa-image"></i></button>
-            <button><i class="fa-solid fa-font"></i></button>
-        
-         </div>
         <section class="imagen__aside"><!-- Seccion IMAGEN -->
+           <!-- <h4 class="">Empieza la Magia</h4> -->
             <div class="url__subirArchivo">
                 <h3 class="titulo__panel__imagen">IMAGEN</h3>
                 <p class="panel-control-title">Aquí URL </p>
@@ -51,13 +63,13 @@
                     <input type="color" name="color" id="inputColor" value="#80BCBD">
                     <span id="fondo__seleccion" >#80BCBD</span>
                 
-                <select class="mezcla__fondo"><!-- Buscar valores!!! -->
-                    <option class="fondo__ninguno" value="#">Ninguno</option>
-                    <option class="fondo__aclarar" value="#">Aclarar</option>
-                    <option class="fondo__oscurecer" value="#">Oscurecer</option>
-                    <option class="fondo__diferencia" value="#">Diferencia</option>
-                    <option class="fondo__luminosidad" value="#">Luminosidad</option>
-                    <option class="fondo__multiplicar" value="#">Multiplicar</option>
+                <select class="mezcla__fondo" id="fondo__img">
+                    <option class="fondo__ninguno" id="normal" value="normal">Ninguno</option>
+                    <option class="fondo__aclarar" id="lighten" value="lighten">Aclarar</option>
+                    <option class="fondo__oscurecer" id="darken" value="darken">Oscurecer</option>
+                    <option class="fondo__diferencia" id="difference" value="difference">Diferencia</option>
+                    <option class="fondo__luminosidad" id="luminosity" value="luminosity">Luminosidad</option>
+                    <option class="fondo__multiplicar" id="multiply" value="multiply">Multiplicar</option>
                 </select>
                 </div>
             </div>
@@ -93,7 +105,7 @@
                     min="100" 
                     max="1000" 
                     step="1" 
-                    value="100">
+                    value="0">
                 </div>
                 <div class="filtros__label">
                     <label for="rango">Desenfoque:</label>
@@ -140,8 +152,8 @@
                     <input type="range" 
                     id="saturacion" 
                     name="saturacion" 
-                    min="100" 
-                    max="1000" 
+                    min="0" 
+                    max="100 " 
                     step="10" 
                     value="100">
                 </div>
@@ -153,7 +165,7 @@
                     min="0" 
                     max="1" 
                     step="0.1" 
-                    value="1">
+                    value="0">
                 </div>
                 <button class="btn__restablecer" id="restablecer__filtros"><i class="fa-solid fa-arrows-rotate"></i> Restablecer Filtros</button>
             </div>
@@ -188,25 +200,29 @@
             </div>
         </div>
             <div class="texto__fuente"><!-- seccion FUENTE-->
-              <h3>FUENTES</h3>  
-              <select name="fuente" id="fuente">
-                <option value="Verdana">Verdana</option>
-                <option value="Helvetica" selected>Helvetica</option>
-                <option value="American Typewriter">American Typewriter</option>
-                <option value="Andale Mono">Andale Mono</option>
-                <option value="Comic Sans MS">Comic Sans</option>
-                <option value="Impact">Impact</option>
-              </select>
+                <h3>FUENTES</h3>  
+                <select name="fuente" id="fuente">
+                    <option value="Verdana">Verdana</option>
+                    <option value="Helvetica" selected>Helvetica</option>
+                    <option value="American Typewriter">American Typewriter</option>
+                    <option value="Andale Mono">Andale Mono</option>
+                    <option value="Comic Sans MS">Comic Sans</option>
+                    <option value="Impact">Impact</option>
+                </select>
             
-              <h3>Tamaño de texto</h3>
-              <input type="number" name="tamaño__texto" class="tamaño__texto" id="tamaño__texto--id" min="12"
-              value="20" />
+                <h3>Tamaño de texto</h3>
+                <input type="number" 
+                name="tamaño__texto" 
+                class="tamaño__texto" 
+                id="tamaño__texto--id"
+                min="12"
+                value="20" />
 
-              <div class="opciones-alineacion">
-                <button class="bnt__alineacion--izq"><i class="fa-solid fa-align-left"></i></button>
-                <button class="bnt__alineacion--cent"><i class="fa-solid fa-align-center"></i></button>
-                <button class="bnt__alineacion--der"><i class="fa-solid fa-align-right"></i></button>
-              </div>
+                <div class="opciones-alineacion">
+                    <button class="bnt__alineacion--izq"><i class="fa-solid fa-align-left"></i></button>
+                    <button class="bnt__alineacion--cent"><i class="fa-solid fa-align-center"></i></button>
+                    <button class="bnt__alineacion--der"><i class="fa-solid fa-align-right"></i></button>
+                </div>
             </div>
 
             <div class="texto__color panel"><!-- seccion color-->
@@ -228,7 +244,7 @@
                     id="checkbox__texto--inferior">
                     <label for="checkbox__texto--inferior">Fondo Transparente
                     </label>
-                </div>
+            </div>
 
             <div class="texto__contorno panel"><!-- seccion contorno-->
                 <h3 class="contorno">CONTORNO</h3>
@@ -236,7 +252,6 @@
                 <button class="contorno" id="contorno__claro">Claro</button>
                 <button class="contorno" id="contorno__oscuro">Oscuro</button>
 
-                
             </div>
 
             <div class="texto__espaciado panel"><!-- seccion espaciado-->
@@ -262,9 +277,8 @@
             </div>
 
         </section>
-
     </aside>
-</div>
+</main>
 <!--script Iconos-->
 <script src="https://kit.fontawesome.com/04baa38fa8.js" crossorigin="anonymous"></script> 
 <!--script main.js-->
