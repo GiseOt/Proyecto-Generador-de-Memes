@@ -31,9 +31,9 @@
     <main class="caja"><!-- Div Padre -->
         <div class="caja__meme"><!-- Caja texto, img, texto y boton de descarga -->
             <div class="meme__texto__imagen" id="imagen-container">
-                <h2 class="txt__arriba">Texto de Arriba</h2>
+                <h2 class="txt__arriba texto__oculto" id="arriba">Texto de Arriba</h2>
                 <div src="" alt="foto de tu meme" class="imagen__clase" id="imagen"></div><!-- CAJA DE IMAGEN -->
-                <h2 class="txt__abajo ">Texto de Abajo</h2>
+                <h2 class="txt__abajo texto__oculto" id="abajo">Texto de Abajo</h2>
             </div>
             <button class="btn__descarga" id="btn--descarga"><i class="fa-solid fa-download"></i> Descargar meme</button><!-- poner -->
     </div>
@@ -153,7 +153,7 @@
                     id="saturacion" 
                     name="saturacion" 
                     min="0" 
-                    max="100 " 
+                    max="200" 
                     step="10" 
                     value="100">
                 </div>
@@ -208,6 +208,7 @@
                     <option value="Andale Mono">Andale Mono</option>
                     <option value="Comic Sans MS">Comic Sans</option>
                     <option value="Impact">Impact</option>
+                    <option value="Times New Roman">Times New Roman</option>
                 </select>
             
                 <h3>Tamaño de texto</h3>
@@ -216,12 +217,12 @@
                 class="tamaño__texto" 
                 id="tamaño__texto--id"
                 min="12"
-                value="20" />
+                value="45" />
 
                 <div class="opciones-alineacion">
-                    <button class="bnt__alineacion--izq"><i class="fa-solid fa-align-left"></i></button>
-                    <button class="bnt__alineacion--cent"><i class="fa-solid fa-align-center"></i></button>
-                    <button class="bnt__alineacion--der"><i class="fa-solid fa-align-right"></i></button>
+                    <button class="bnt__alineacion--izq" id="izquierda"><i class="fa-solid fa-align-left"></i></button>
+                    <button class="bnt__alineacion--cent" id="centro"><i class="fa-solid fa-align-center"></i></button>
+                    <button class="bnt__alineacion--der" id="derecha"><i class="fa-solid fa-align-right"></i></button>
                 </div>
             </div>
 

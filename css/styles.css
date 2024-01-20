@@ -14,8 +14,7 @@
     padding-inline: 20px;
     color: white;
 }
-.modo--Claro
-{
+.modo--Claro{
     background-color:white;
     display: flex;
     flex-direction: column;
@@ -71,6 +70,7 @@ h1{
     color: black;
     background-color:rgb(229, 225, 218);
 }
+
 
   /* CAJA DONDE VA LA IMAGEN */
 .imagen__clase {
