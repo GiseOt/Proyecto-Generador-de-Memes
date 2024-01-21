@@ -84,11 +84,11 @@ h1{
 }
 
 /* BOTON DE DESCARGA*/
-.caja button {
+.caja button {             /*** botones de centrado  ancho 20px y poner un tex aling*/ 
     margin: 20px;
     width: 130px;
     height: 45px;
-    color: #fff;
+    color:white;
     border-radius: 5px;
     padding: 10px 25px;
     font-family: 'Lato', sans-serif;

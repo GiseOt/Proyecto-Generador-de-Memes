@@ -101,6 +101,15 @@ inputColor.addEventListener("input", (e) => {
   divImg.style.backgroundColor = e.target.value;
 });
 
+//span color 
+const colorFondo = () => {
+    const fondoColor = inputColor.value;  //valor input type color
+    document.getElementById('fondo__seleccion').innerText = fondoColor; //el span que cambie
+    divImg.style.backgroundColor = fondoColor; 
+}
+inputColor.addEventListener('input', colorFondo); 
+
+
 const filtrosLabels = document.querySelectorAll('.filtros__label');
 const brillo = document.getElementById('brillo');
 const opacidad = document.getElementById('opacidad');
@@ -151,7 +160,7 @@ filtrosLabels.forEach(filtroLabel => {
 });
 
 
-//Mezcla
+//MEZCLA
 
 const inputBlendMode = document.getElementById('fondo__img');
 
@@ -166,7 +175,7 @@ const diferencia = document.getElementById('difference');
 const luminosidad = document.getElementById('luminosity');
 const multiply = document.getElementById('multiply');
 
-const aplicarMezcla = () => {  //PREGUNTAR EN CLASE
+const aplicarMezcla = () => {  
     const normalValor = normal.value;
     const aclararValor = aclarar.value;
     const oscurecerValor = oscurecer.value;
@@ -197,16 +206,192 @@ document.getElementById('restablecer__filtros').addEventListener('click', resetM
 
 // Restablecer los valores
 function resetMezcla() {
-    normal.value = normal; // preguntar profe valores correctos
-    aclarar.value = lighten;
-    oscurecer.value = darken;
-    diferencia.value = difference;
-    luminosidad.value = luminosity;
-    multiply.value = multiply;
+  normal.value = normal; // preguntar profe valores correctos
+  aclarar.value = lighten;
+  oscurecer.value = darken;
+  diferencia.value = difference;
+  luminosidad.value = luminosity;
+  multiply.value = multiply;
 
-    // Restablecer el valor del blend mode
-    inputBlendMode.value = 'normal';
+  // Restablecer el valor del blend mode
+  inputBlendMode.value = 'normal';
 
-    // aplico la mezcla despues de restablecer valores
-    aplicarMezcla();
+  // aplico la mezcla despues de restablecer valores
+  aplicarMezcla();
 }
+
+//CAMBIAR TEXTO 
+
+const textSup = document.getElementById('arriba');
+const textInf = document.getElementById('abajo');
+const texAreaSup = document.getElementById('texto__superior');
+const texAreaInf = document.getElementById('texto__inferior');
+
+// h2 aca cambia
+
+const actualizarTextos = () =>{
+  textSup.innerText = texAreaSup.value;
+  textInf.innerText = texAreaInf.value;
+}
+
+texAreaSup.addEventListener('input', actualizarTextos);// el evento arriba
+texAreaInf.addEventListener('input', actualizarTextos);// el evento abajo
+
+
+//Sin textos Superior / Inferior
+
+const sinTextoSuperior = document.getElementById('sin__texto--superior'); //mis input type="checkbox"
+const sinTextoInferior = document.getElementById('sin__texto--inferior');
+
+const textoCheked = () => {
+  if (sinTextoSuperior.checked) {
+    textSup.style.display = 'none'; //solo cuando hago click se vuelve display none
+  } else {
+    textSup.style.display = 'block'; 
+  }
+  //
+  
+  if (sinTextoInferior.checked) {
+    textInf.style.display = 'none';//solo cuando hago click se vuelve display none
+  } else {
+    textInf.style.display = 'block'; 
+  }
+}
+
+//Evento
+sinTextoSuperior.addEventListener('change', textoCheked);
+sinTextoInferior.addEventListener('change', textoCheked);
+sinTextoSuperior.addEventListener('change', textoCheked);
+sinTextoInferior.addEventListener('change', textoCheked);
+
+
+//FUENTES
+
+
+        const fuentes = document.getElementById('fuente');
+
+        const fuentesTexto = () => {
+          const fuenteSeleccionada = fuentes.value;
+          textSup.style.fontFamily = fuenteSeleccionada;
+          textInf.style.fontFamily = fuenteSeleccionada;
+        }
+
+        // evento
+        fuentes.addEventListener('change', fuentesTexto);
+
+//TAMAÑO TEXTO
+
+const tamanioTextoInput = document.getElementById('tamaño__texto--id');
+
+        const actualizarTamanioTexto = () => {
+          const tamanioTexto = tamanioTextoInput.value + 'px'; //el numero mas el pixel
+          textSup.style.fontSize = tamanioTexto;
+          textInf.style.fontSize = tamanioTexto;
+        }
+
+        //el evento
+        tamanioTextoInput.addEventListener('input', actualizarTamanioTexto);
+
+// LA ALINEACION
+
+const cambiarAlineacion = (alineacion) => { //mi parametro es alineacion ,alineacion son los textos : text-align
+  textSup.style.textAlign = alineacion;
+  textInf.style.textAlign = alineacion;
+}
+
+document.getElementById('izquierda').addEventListener('click', () => { //evento click tex-align :left
+  cambiarAlineacion('left');
+});
+
+document.getElementById('centro').addEventListener('click', () => { //evento click tex-align :center
+  cambiarAlineacion('center');
+});
+
+document.getElementById('derecha').addEventListener('click', () => { //evento click tex-align :right
+  cambiarAlineacion('right');
+});
+
+//COLOR AL TEXTO 
+
+const colorTexto = () => {
+  const color = document.getElementById('color').value.toUpperCase();
+
+  document.getElementById('texto--color').innerText = color;
+  textSup.style.color = color;
+  textInf.style.color = color;
+}
+//Mi evento
+document.getElementById('color').addEventListener('input', colorTexto)
+
+//FONDO DE TEXTO
+//////////////////////////////////////////////
+const checkboxFondo = document.getElementById('checkbox__fondo');
+const fondoColorInput = document.getElementById('fondo__color');
+const fondoSeleccionSpan = document.getElementById('fondo__texto');
+
+function actualizarFondo() {
+    if (!checkboxFondo.checked) {
+        const color = fondoColorInput.value;
+        fondoSeleccionSpan.innerText = color.toUpperCase();
+        textSup.style.backgroundColor = color;
+        textInf.style.backgroundColor = color;
+    } else {
+        fondoSeleccionSpan.innerText = 'transparent';
+        textSup.style.backgroundColor = 'transparent';
+        textInf.style.backgroundColor = 'transparent';
+    }
+}
+
+//mis eventos
+fondoColorInput.addEventListener('input', actualizarFondo);
+checkboxFondo.addEventListener('change', actualizarFondo);
+
+
+//CONTORNO
+
+const ningunoBtn = document.getElementById('contorno__ninguno');
+const claroBtn = document.getElementById('contorno__claro');
+const oscuroBtn = document.getElementById('contorno__oscuro');
+
+ningunoBtn.addEventListener('click', () => {
+    textSup.style.textShadow = '';
+    textInf.style.textShadow = '';
+});
+
+claroBtn.addEventListener('click', () => {
+  //valores con generador de textShadow
+  textSup.style.textShadow = '-2px -2px 1px #fff, 2px 2px 1px #fff, -2px 2px 1px #fff, 2px -2px 1px #fff';
+    textInf.style.textShadow = '-2px -2px 1px #fff, 2px 2px 1px #fff, -2px 2px 1px #fff, 2px -2px 1px #fff'; 
+});
+
+oscuroBtn.addEventListener('click', () => {
+  // valores con generador de texShadow
+  textSup.style.textShadow = '-2px -2px 1px rgba(0, 0, 0, 0.3), 2px 2px 1px rgba(0, 0, 0, 0.3), -2px 2px 1px rgba(0, 0, 0, 0.3), 2px -2px 1px rgba(0, 0, 0, 0.3)';
+  textInf.style.textShadow = '-2px -2px 1px rgba(0, 0, 0, 0.3), 2px 2px 1px rgba(0, 0, 0, 0.3), -2px 2px 1px rgba(0, 0, 0, 0.3), 2px -2px 1px rgba(0, 0, 0, 0.3)';
+});
+
+//ESPACIADO
+
+const espaciado = () => {
+  const espaciadoTexto = document.getElementById('espaciado__txt').value;
+  textSup.style.padding = `${espaciadoTexto}px 50px`
+ textInf.style.padding = `${espaciadoTexto}px 50px`
+}
+//el evento
+
+document.getElementById('espaciado__txt').addEventListener('input', espaciado)
+
+//INTERLINEADO
+
+const interlineado = () => {
+  const interlineadoTxt = document.getElementById('interlineado__texto').value;
+  textSup.style.lineHeight = interlineadoTxt;
+  textInf.style.lineHeight = interlineadoTxt;
+}
+
+document.getElementById('interlineado__texto').addEventListener('change', interlineado);
+
+
+// ver recargar pagina con windonw window.onload 
+//ver paneles en escritorio 
+//ver bonton de cerrar ( window.close();?)

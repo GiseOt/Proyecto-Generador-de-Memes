@@ -195,7 +195,7 @@
             <div class="texto__superior__inferior"><!-- tilde SIN TEXTO INFERIOR con ckeckbox-->
                 <input type="checkbox" 
                 id="sin__texto--inferior">
-                <label for="checkbox__texto--inferior">Sin texto
+                <label for="sin__texto--inferior">Sin texto
                 inferior</label>
             </div>
         </div>
@@ -210,20 +210,22 @@
                     <option value="Impact">Impact</option>
                     <option value="Times New Roman">Times New Roman</option>
                 </select>
-            
-                <h3>Tamaño de texto</h3>
-                <input type="number" 
+            <!-- div?-->
+         
+            <input type="number" 
                 name="tamaño__texto" 
                 class="tamaño__texto" 
                 id="tamaño__texto--id"
                 min="12"
-                value="45" />
+                value="45"/>
+                <label for="tamaño__texto--id">Tamaño texto</label>
 
                 <div class="opciones-alineacion">
                     <button class="bnt__alineacion--izq" id="izquierda"><i class="fa-solid fa-align-left"></i></button>
                     <button class="bnt__alineacion--cent" id="centro"><i class="fa-solid fa-align-center"></i></button>
                     <button class="bnt__alineacion--der" id="derecha"><i class="fa-solid fa-align-right"></i></button>
                 </div>
+                <!--div?-->
             </div>
 
             <div class="texto__color panel"><!-- seccion color-->
@@ -232,18 +234,20 @@
                         <input type="color" 
                         name="color" 
                         id="color" 
-                        value="#80BCBD">
+                        value= "#000000">
+                        <span id="texto--color">#000000</span>
                 </div>
                 <div>
                     <h3>FONDO</h3>
                         <input type="color" 
                         name="color" 
                         id="fondo__color" 
-                        value="#80BCBD">
+                        value="#FFFFFF">
+                        <span id="fondo__texto">#FFFFFF</span>
                 </div>
                     <input type="checkbox" 
-                    id="checkbox__texto--inferior">
-                    <label for="checkbox__texto--inferior">Fondo Transparente
+                    id="checkbox__fondo">
+                    <label for="checkbox__fondo">Fondo Transparente
                     </label>
             </div>
 
