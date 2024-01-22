@@ -80,9 +80,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const imagenAside = document.querySelector('.imagen__aside');
   const textoAside = document.querySelector('.texto__aside');
 
-  btnImagen.addEventListener('click', () =>scrollAseccion(imagenAside)); 
+  // seccion texto oculta
+  textoAside.style.display = 'none';
 
-  btnTexto.addEventListener('click', () => scrollAseccion(textoAside));
+  btnImagen.addEventListener('click', (event) => {
+      event.preventDefault(); // para que no haga scroll
+      scrollAseccion(imagenAside);
+      activarSeccion(imagenAside);
+      desactivarSeccion(textoAside);
+  });
+
+  btnTexto.addEventListener('click', (event) => {
+      event.preventDefault(); // para que no haga scroll
+      scrollAseccion(textoAside);
+      activarSeccion(textoAside);
+      desactivarSeccion(imagenAside);
+  });
 
   const scrollAseccion = (section) => {
       window.scrollTo({
@@ -90,7 +103,20 @@ document.addEventListener('DOMContentLoaded', () => {
           behavior: 'smooth'
       });
   };
+
+  const activarSeccion = (section) => {
+      if (section.style.display !== 'inline-flex') {
+          section.style.display = 'inline-flex';
+      }
+  };
+
+  const desactivarSeccion = (section) => {
+      if (section.style.display !== 'none') {
+          section.style.display = 'none';
+      }
+  };
 });
+
 
 //BLEND MODE / CAMBIA FONDO
 
@@ -183,7 +209,7 @@ const aplicarMezcla = () => {
     const luminosidadValor = luminosidad.value;
     const multiplyValor = multiply.value;
 
-    // Aplicar mezcla al elemento de la imagen
+    // Aplicar mezcla 
     divImg.style.filter = `brightness(${normalValor}%) lighten(${aclararValor}%) darken(${oscurecerValor}%) 
         contrast(${diferenciaValor}%) luminosity(${luminosidadValor}%) multiply(${multiplyValor}%)`;
 };
@@ -324,7 +350,7 @@ const colorTexto = () => {
 document.getElementById('color').addEventListener('input', colorTexto)
 
 //FONDO DE TEXTO
-//////////////////////////////////////////////
+
 const checkboxFondo = document.getElementById('checkbox__fondo');
 const fondoColorInput = document.getElementById('fondo__color');
 const fondoSeleccionSpan = document.getElementById('fondo__texto');

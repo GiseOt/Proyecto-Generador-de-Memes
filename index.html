@@ -25,7 +25,7 @@
                 <button class="imagen"><i class="fa-regular fa-image"></i></button>
                 <button class="texto"><i class="fa-solid fa-font"></i></button>
                 <button class="claro" id="modo-claro"><i class="fa-regular fa-sun"></i></button><!-- poner iconito y ver el modo display none-->
-            <button class="oscuro" id="modo-oscuro"><i class="fa-regular fa-moon"></i></button><!-- poner iconito -->
+            <button class="oscuro" id="modo-oscuro"><i class="fa-regular fa-moon"></i></button>
             </div>
         </header>
     <main class="caja"><!-- Div Padre -->
@@ -38,13 +38,12 @@
             <button class="btn__descarga" id="btn--descarga"><i class="fa-solid fa-download"></i> Descargar meme</button><!-- poner -->
     </div>
     <aside class="panel__generador" ><!-- Panel derecho-->
-        <div class="btn-cerrar">
+    <!--  VERRR ya que no tiene en el tp de escritorio y en movil hago scroll <div class="btn-cerrar">
             <button  class="cierre__boton">x</button>
-        </div>
+        </div> -->
         <section class="imagen__aside"><!-- Seccion IMAGEN -->
-           <!-- <h4 class="">Empieza la Magia</h4> -->
             <div class="url__subirArchivo">
-                <h3 class="titulo__panel__imagen">IMAGEN</h3>
+                <h3 class="titulo__panel">IMAGEN</h3>
                 <p class="panel-control-title">Aquí URL </p>
                 <input type="text"
                 class="url__imagen">
@@ -56,8 +55,7 @@
                 accept="image/png, image/gif, image/jpeg"/>
             </div>
             
-            
-            <div class="caja__fondos">
+            <div class="caja__fondos panel">
                 <h3>FONDO</h3>
                 <div class="fondo__imagen">
                     <input type="color" name="color" id="inputColor" value="#80BCBD">
@@ -76,7 +74,6 @@
             
             <div class="caja__filtros"><!--Filtros-->
                 <h3>FILTROS</h3>
-
                 <div class="filtros__label">
                     <label for="brillo">Brillo:</label>
                     <input type="range" 
@@ -172,8 +169,8 @@
 
         </section> 
         <section class="texto__aside"><!-- seccion TEXTO-->
-            <h3>TEXTO</h3>
-            <div class="texto__superior"><!-- seccion TEXTO superior-->
+            <div class="texto__superior panel" ><!-- seccion TEXTO superior-->
+                <h3 class="titulo__panel">TEXTO</h3>
                 <textarea name="texto__superior" 
                 id="texto__superior" 
                 class="texto__superior" 
@@ -185,7 +182,7 @@
                 superior</label>
             </div>
         </div>
-        <div class="texto__inferior"><!-- seccion TEXTO inferior-->
+        <div class="texto__inferior panel"><!-- seccion TEXTO inferior-->
             <textarea
             name="texto__inferior"
             id="texto__inferior"
@@ -199,7 +196,7 @@
                 inferior</label>
             </div>
         </div>
-            <div class="texto__fuente"><!-- seccion FUENTE-->
+            <div class="texto__fuente panel"><!-- seccion FUENTE-->
                 <h3>FUENTES</h3>  
                 <select name="fuente" id="fuente">
                     <option value="Verdana">Verdana</option>
@@ -210,26 +207,24 @@
                     <option value="Impact">Impact</option>
                     <option value="Times New Roman">Times New Roman</option>
                 </select>
-            <!-- div?-->
-         
+            <div class="texto__tamaño--alineacion">
             <input type="number" 
                 name="tamaño__texto" 
                 class="tamaño__texto" 
                 id="tamaño__texto--id"
                 min="12"
                 value="45"/>
-                <label for="tamaño__texto--id">Tamaño texto</label>
 
                 <div class="opciones-alineacion">
                     <button class="bnt__alineacion--izq" id="izquierda"><i class="fa-solid fa-align-left"></i></button>
                     <button class="bnt__alineacion--cent" id="centro"><i class="fa-solid fa-align-center"></i></button>
                     <button class="bnt__alineacion--der" id="derecha"><i class="fa-solid fa-align-right"></i></button>
                 </div>
-                <!--div?-->
+            </div>
             </div>
 
-            <div class="texto__color panel"><!-- seccion color-->
-                <div>
+            <div class="texto__color "><!-- seccion color-->
+                <div class="panel">
                     <h3>COLOR</h3>
                         <input type="color" 
                         name="color" 
@@ -237,7 +232,7 @@
                         value= "#000000">
                         <span id="texto--color">#000000</span>
                 </div>
-                <div>
+                <div class="panel">
                     <h3>FONDO</h3>
                         <input type="color" 
                         name="color" 
@@ -245,18 +240,22 @@
                         value="#FFFFFF">
                         <span id="fondo__texto">#FFFFFF</span>
                 </div>
+            </div>
+                <div class="sin__fondo--txt">
                     <input type="checkbox" 
                     id="checkbox__fondo">
                     <label for="checkbox__fondo">Fondo Transparente
                     </label>
-            </div>
+                </div>
+            
 
             <div class="texto__contorno panel"><!-- seccion contorno-->
-                <h3 class="contorno">CONTORNO</h3>
+                <h3 class="titulo__contorno">CONTORNO</h3>
+                <div class="contornobtn">
                 <button class="contorno" id="contorno__ninguno">Ninguno</button>
                 <button class="contorno" id="contorno__claro">Claro</button>
                 <button class="contorno" id="contorno__oscuro">Oscuro</button>
-
+                </div>
             </div>
 
             <div class="texto__espaciado panel"><!-- seccion espaciado-->
@@ -284,6 +283,8 @@
         </section>
     </aside>
 </main>
+<footer class="footertxt"><!--FOOTER-->
+</footer>
 <!--script Iconos-->
 <script src="https://kit.fontawesome.com/04baa38fa8.js" crossorigin="anonymous"></script> 
 <!--script main.js-->

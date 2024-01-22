@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 *{
     padding: 0;
@@ -5,7 +6,6 @@
     box-sizing: border-box;
     font-family: 'Roboto', serif;
 }
-
 /* MODOS CLARO Y OSCURO*/
 .modo--Oscuro{
     background-color:rgb(61, 44, 141);
@@ -22,6 +22,11 @@
     color: white;
 }
 
+@media (min-width: 970px) {
+    body {
+        height: 100vh;
+    }
+}
 
   /* HEADER */
 header{
@@ -37,7 +42,16 @@ header{
 }
 .modo--claro__header{
     background-color:rgb(145, 107, 191) ;
-    
+}
+
+/*boton header*/
+.btn-modos button{
+    width: 25px;
+    height:25px;
+    margin-bottom: 5px;
+    border: none;
+    background: rgb(174,214,238);
+background: radial-gradient(circle, rgba(174,214,238,0.9780287114845938) 29%, rgba(148,187,233,1) 85%);
 }
 
 /*DIV PADRE*/
@@ -50,20 +64,18 @@ header{
 }
 
 h1{
-    margin-top: 15px;
+    margin-top: 20px;
 }
-
 .h2_indicacion{
     font-size: 1rem;
 }
-
-  /* CAJA DEL MEME ***MAIN****/
+/* CAJA DEL MEME ***MAIN****/
 .caja__meme {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-block: 65px;
+    margin-block: 50px;
 }
 
 .caja__meme h2{
@@ -71,20 +83,34 @@ h1{
     background-color:rgb(229, 225, 218);
 }
 
-
   /* CAJA DONDE VA LA IMAGEN */
 .imagen__clase {
     width:290px; 
     height: 250px; 
     background-color: rgb(21, 21, 21); 
     margin: auto ;
-    background-size: cover; /* Ajusta según tus necesidades */
-    background-position: center; /* Ajusta según tus necesidades */
+    background-size: cover; 
+    background-position: center; 
     background-repeat: no-repeat;
 }
 
+/* ASIDE ESCRITORIO*/
+@media (min-width: 970px) {
+    .imagen__clase {
+        width: 600px;
+        height: 550px;
+    }
+}
+
+.titulo__panel {
+    padding-top: 10px;
+} 
+
 /* BOTON DE DESCARGA*/
-.caja button {             /*** botones de centrado  ancho 20px y poner un tex aling*/ 
+.btn__descarga {
+    border: none;
+    transition: all 0.3s ease;
+    overflow: hidden;
     margin: 20px;
     width: 130px;
     height: 45px;
@@ -104,12 +130,6 @@ h1{
     outline: none;
 }
 
-.btn__descarga {
-    border: none;
-    transition: all 0.3s ease;
-    overflow: hidden;
-}
-
 .btn__descarga:after {
     position: absolute;
     content: " ";
@@ -119,7 +139,7 @@ h1{
     width: 100%;
     height: 100%;
     background-color: #1fd1f9;
-    background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
+    background-image:linear-gradient(315deg, rgb(31, 209, 249) 0%, rgb(182, 33, 254) 74%);
     transition: all 0.3s ease;
 }
 
@@ -131,7 +151,6 @@ h1{
     inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
     color: #fff;
 }
-
 .btn__descarga:hover:after {
     -webkit-transform: scale(2) rotate(180deg);
     transform: scale(2) rotate(180deg);
@@ -144,6 +163,17 @@ h1{
 /*ASIDE -- PANELES claro/oscuro----*/
 aside {
     background-color:rgb(145, 107, 191) ;  
+    padding-inline: 10px;
+}
+
+/* ASIDE ESCRITORIO*/
+@media (min-width: 970px) {
+    aside {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100vh;
+    }
 }
 
 /*PANEL SECCIONES*/
@@ -151,8 +181,8 @@ section{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
-    margin-block: 20px;
+    gap: 15px;
+    margin-block: 40px;
 }
 
 /* Todos los divs de Seccion mismo diseño*/
@@ -161,34 +191,128 @@ section div{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 10px;
 }
 
-/* BOTON DE CIERRE PANEL*/
-.btn-cerrar{
-    display: flex;
-    justify-content: flex-end;
+/* Botones Secciones*/
+section button {
+    background-color:  rgb(182, 33, 254);
+    color: white;
+    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+                -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+    border-radius: 5%;
 }
 
-.btn-cerrar button{
+/********fondo*********/
+.fondo__imagen{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 8px;
+    flex-direction: row;
+}
+
+input[type="color"] { /*preguntar a la profe CIRCULO PARA EL COLOR*/
+    width: 30px;
+    height: 30px;
+    border-radius: 1%;
+    background-color: transparent;
+    padding: 0;
+}
+
+/******************filtros******************/
+
+input,select,textarea {
+    width: 270px;
+}
+
+input[type='range'] {
+    background-color: white;
+    border-radius: 10px;
+    appearance: none;
+    height: 6px;
+    margin-top: 10px;
+    width: 260px;
 }
 
 /*BOTON PARA RESTABLECER FILTRO */
 .caja__filtros button {
+    width: 120px;
+    height: 51px;
     display: flex;
-    justify-content: flex-end;
-    
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
 }
 
-.btn-modos button{
-    width: 25px;
-    height:25px;
-    margin-bottom: 5px;
-    border: none;
-    background: rgb(174,214,238);
-background: radial-gradient(circle, rgba(174,214,238,0.9780287114845938) 29%, rgba(148,187,233,1) 85%);
+/**** TEXTO****/
+
+/* boton input tamaño texto*/
+.tamaño__texto, .mezcla__fondo{
+    width: 100px;
 }
+
+/*textarea*/
+textarea{
+    text-align: center;
+    padding-top: 10px;
+    border-radius: 10px;
+}
+
+/*/// Fuentes ///*/
+
+/*Botones alineacion*/
+.opciones-alineacion button{
+    width: 20px;
+    text-align: center;
+    transition-duration: 1s;
+}
+
+.opciones-alineacion button:hover{
+    background-color: rgb(220, 191, 255);
+}
+
+.texto__tamaño--alineacion{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.opciones-alineacion{
+    display: flex;
+    flex-direction: row;
+}
+
+.opciones-alineacion button {
+    width: 40px;
+    height: 40px;
+    .buttons-alignment .button {
+        margin: 0;
+    }
+}
+
+/* COLOR */
+.texto__color{
+    background-color:rgba(182, 33, 254, 0.5);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    width: 270px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+/* CONTORNO*/
+/* div de los botones*/
+.contornobtn{
+    display: flex;
+    flex-direction: row;
+}
+
+/* Boton de alineacion*/
+.contorno{
+    width: 60px;
+    height: 40px;
+}
+
