@@ -1,11 +1,12 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Roboto', serif;
+
 }
+
 /* MODOS CLARO Y OSCURO*/
 .modo--Oscuro{
     background-color:rgb(61, 44, 141);
@@ -14,6 +15,7 @@
     padding-inline: 20px;
     color: white;
 }
+
 .modo--Claro{
     background-color:white;
     display: flex;
@@ -28,7 +30,7 @@
     }
 }
 
-  /* HEADER */
+/************* HEADER **************/
 header{
     background-color:rgb(28, 12, 91);
     width: calc(100% + 40px);
@@ -44,17 +46,34 @@ header{
     background-color:rgb(145, 107, 191) ;
 }
 
-/*boton header*/
+/*BOTON HEADER*/
 .btn-modos button{
-    width: 25px;
-    height:25px;
-    margin-bottom: 5px;
+    width: 50px;
+    height:30px;
+    margin: 10px 15px;
+    border-radius: 5px;
     border: none;
     background: rgb(174,214,238);
-background: radial-gradient(circle, rgba(174,214,238,0.9780287114845938) 29%, rgba(148,187,233,1) 85%);
+    background: radial-gradient(circle, rgba(174,214,238,0.9780287114845938) 29%, rgba(148,187,233,1) 85%);
+    transition-duration: 1s;
 }
 
-/*DIV PADRE*/
+.btn-modos button:hover{
+    background: rgb(232, 219, 248);
+
+}
+
+/*ICONOS TAMAÑO*/
+
+i.fa-image,
+i.fa-font,
+i.fa-sun,
+i.fa-moon {
+    font-size: 1rem;
+}
+
+/******DIV PADRE***/
+
 .caja{
 /*  background-color:rgb(255, 185, 150) ;*/
     display: flex;
@@ -64,28 +83,45 @@ background: radial-gradient(circle, rgba(174,214,238,0.9780287114845938) 29%, rg
 }
 
 h1{
-    margin-top: 20px;
+        margin-top: 20px;
+        font-size: 2rem;
+        text-align: center;
 }
+
+/*  ESCRITORIO H1*/
+
+@media (min-width: 970px) {
+h1 {
+    font-size: 3rem;
+    }
+}
+
 .h2_indicacion{
     font-size: 1rem;
 }
-/* CAJA DEL MEME ***MAIN****/
+
+/************* CAJA DEL MEME ***MAIN****/
+
 .caja__meme {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-block: 50px;
+    /*margin-block: 35px;*/ /*probar mobile*/
+    margin-bottom: 30px;
 }
 
 .caja__meme h2{
     color: black;
     background-color:rgb(229, 225, 218);
+    padding: 15px;
+    font-size: 2rem;
 }
 
-  /* CAJA DONDE VA LA IMAGEN */
+/* CAJA DONDE VA LA IMAGEN */
+
 .imagen__clase {
-    width:290px; 
+    width:300px; 
     height: 250px; 
     background-color: rgb(21, 21, 21); 
     margin: auto ;
@@ -94,11 +130,11 @@ h1{
     background-repeat: no-repeat;
 }
 
-/* ASIDE ESCRITORIO*/
+/*  ESCRITORIO IMAGEN__CLASE*/
 @media (min-width: 970px) {
     .imagen__clase {
-        width: 600px;
-        height: 550px;
+        width:550px;
+        height: 500px;
     }
 }
 
@@ -107,13 +143,14 @@ h1{
 } 
 
 /* BOTON DE DESCARGA*/
+
 .btn__descarga {
     border: none;
     transition: all 0.3s ease;
     overflow: hidden;
     margin: 20px;
-    width: 130px;
-    height: 45px;
+    width: 170px;
+    height: 50px;
     color:white;
     border-radius: 5px;
     padding: 10px 25px;
@@ -138,7 +175,7 @@ h1{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #1fd1f9;
+    background-color:rgb(31, 209, 249);
     background-image:linear-gradient(315deg, rgb(31, 209, 249) 0%, rgb(182, 33, 254) 74%);
     transition: all 0.3s ease;
 }
@@ -151,6 +188,7 @@ h1{
     inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
     color: #fff;
 }
+
 .btn__descarga:hover:after {
     -webkit-transform: scale(2) rotate(180deg);
     transform: scale(2) rotate(180deg);
@@ -160,9 +198,9 @@ h1{
     inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
 }
 
-/*ASIDE -- PANELES claro/oscuro----*/
+/*************ASIDE -- PANELES claro/oscuro----*************/
 aside {
-    background-color:rgb(145, 107, 191) ;  
+    background-color:rgb(92, 70, 156) ;  
     padding-inline: 10px;
 }
 
@@ -176,7 +214,7 @@ aside {
     }
 }
 
-/*PANEL SECCIONES*/
+/*/////////****PANEL SECCIONES*****/
 section{
     display: flex;
     flex-direction: column;
@@ -194,7 +232,7 @@ section div{
     gap: 10px;
 }
 
-/* Botones Secciones*/
+/*** BOTONES SECCIONES***/
 section button {
     background-color:  rgb(182, 33, 254);
     color: white;
@@ -205,13 +243,21 @@ section button {
     border-radius: 5%;
 }
 
-/********fondo*********/
+.opciones-alineacion button:hover,
+.contornobtn button:hover{
+    background-color: rgb(220, 191, 255);
+}
+
+.btn__restablecer:hover{
+    background-color: rgb(154, 127, 187);
+}
+/*******************FONDO*****************************/
 .fondo__imagen{
     display: flex;
     flex-direction: row;
 }
-
-input[type="color"] { /*preguntar a la profe CIRCULO PARA EL COLOR*/
+/*****INPUT COLOR***/
+input[type="color"] { 
     width: 30px;
     height: 30px;
     border-radius: 1%;
@@ -219,7 +265,7 @@ input[type="color"] { /*preguntar a la profe CIRCULO PARA EL COLOR*/
     padding: 0;
 }
 
-/******************filtros******************/
+/******************FILTROS******************/
 
 input,select,textarea {
     width: 270px;
@@ -245,32 +291,28 @@ input[type='range'] {
     margin-top: 10px;
 }
 
-/**** TEXTO****/
+/************************ TEXTO******************/
 
-/* boton input tamaño texto*/
+/* BOTON INPUT TAMANO TEXTO*/
 .tamaño__texto, .mezcla__fondo{
     width: 100px;
 }
 
-/*textarea*/
+/**TEXTAREA***/
 textarea{
     text-align: center;
     padding-top: 10px;
     border-radius: 10px;
 }
 
-/*/// Fuentes ///*/
 
-/*Botones alineacion*/
+/*** ALINEACION*/
 .opciones-alineacion button{
     width: 20px;
     text-align: center;
     transition-duration: 1s;
 }
 
-.opciones-alineacion button:hover{
-    background-color: rgb(220, 191, 255);
-}
 
 .texto__tamaño--alineacion{
     display: flex;
@@ -291,7 +333,7 @@ textarea{
     }
 }
 
-/* COLOR */
+/*************** COLOR *******/
 .texto__color{
     background-color:rgba(182, 33, 254, 0.5);
     display: flex;
@@ -303,14 +345,13 @@ textarea{
     border-radius: 10px;
 }
 
-/* CONTORNO*/
+/******** CONTORNO********/
 /* div de los botones*/
 .contornobtn{
     display: flex;
     flex-direction: row;
 }
 
-/* Boton de alineacion*/
 .contorno{
     width: 60px;
     height: 40px;

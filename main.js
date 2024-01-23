@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
   downloadBtn.addEventListener("click", () => { //boton para descargar
     domtoimage.toBlob(imagenContainer).then((blob) => {
       window.saveAs(blob, "meme.png");
+      location.reload();
     });
   });
 
@@ -400,12 +401,12 @@ oscuroBtn.addEventListener('click', () => {
 
 const espaciado = () => {
   const espaciadoTexto = document.getElementById('espaciado__txt').value;
-  textSup.style.padding = `${espaciadoTexto}px 50px`
- textInf.style.padding = `${espaciadoTexto}px 50px`
+  textSup.style.letterSpacing = `${espaciadoTexto}px`
+ textInf.style.letterSpacing = `${espaciadoTexto}px `
 }
 //el evento
 
-document.getElementById('espaciado__txt').addEventListener('input', espaciado)
+document.getElementById('espaciado__txt').addEventListener('input', espaciado);
 
 //INTERLINEADO
 
@@ -416,8 +417,3 @@ const interlineado = () => {
 }
 
 document.getElementById('interlineado__texto').addEventListener('change', interlineado);
-
-
-// ver recargar pagina con windonw window.onload 
-//ver paneles en escritorio 
-//ver bonton de cerrar ( window.close();?)
