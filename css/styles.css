@@ -231,11 +231,12 @@ h1 {
 
 .aside__claro {
     background-color:rgb(92, 70, 156) ;  
+    
 }
 
 .aside__oscuro {
     background-color:rgb(66, 71, 105);  
-    ;
+    
 }
 
 /* ASIDE ESCRITORIO*/
@@ -245,7 +246,7 @@ h1 {
         position: absolute;
         top: 0;
         right: 0;
-        height: 100vh;
+       /*height: 100vh;*/
     }
 }
 
