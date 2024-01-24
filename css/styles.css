@@ -47,8 +47,17 @@ header{
 }
 
 /*BOTON HEADER*/
+.btn-modos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .btn-modos button{
-    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    width:50px;
     height:30px;
     margin: 10px 15px;
     border-radius: 5px;
@@ -80,6 +89,9 @@ i.fa-moon {
     flex-direction: column;
     margin-block: 20px;
     text-align: center;
+    /*max-width:300px;
+    max-height: ;
+    margin: auto;*/
 }
 
 h1{
@@ -116,6 +128,8 @@ h1 {
     background-color:rgb(229, 225, 218);
     padding: 15px;
     font-size: 2rem;
+    max-width: 100%; 
+    box-sizing: border-box;
 }
 
 /* CAJA DONDE VA LA IMAGEN */
@@ -199,8 +213,13 @@ h1 {
 }
 
 /*************ASIDE -- PANELES claro/oscuro----*************/
-aside {
+.aside__claro {
     background-color:rgb(92, 70, 156) ;  
+    padding-inline: 10px;
+}
+
+.aside__oscuro {
+    background-color:rgb(66, 71, 105);  
     padding-inline: 10px;
 }
 
@@ -275,7 +294,7 @@ input[type='range'] {
     background-color: white;
     border-radius: 10px;
     appearance: none;
-    height: 6px;
+    height: 10px;
     margin-top: 10px;
     width: 260px;
 }

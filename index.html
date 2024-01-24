@@ -22,9 +22,9 @@
         <header class="modo--claro__header modo--oscuro__header"><!-- Titulo -->
             <h1>Generador de Memes</h1>
             <div class="btn-modos">
-                <button class="imagen"><i class="fa-regular fa-image"></i></button>
-                <button class="texto"><i class="fa-solid fa-font"></i></button>
-                <button class="claro" id="modo-claro"><i class="fa-regular fa-sun"></i></button><!-- poner iconito y ver el modo display none-->
+                <button class="imagen" tabindex="0">Img<i class="fa-regular fa-image"></i></button>
+                <button class="texto" tabindex="1">Text<i class="fa-solid fa-font"></i></button>
+                <button class="claro" id="modo-claro" tabindex="2"><i class="fa-regular fa-sun"></i></button><!-- poner iconito y ver el modo display none-->
             <button class="oscuro" id="modo-oscuro"><i class="fa-regular fa-moon"></i></button>
             </div>
         </header>
@@ -35,12 +35,9 @@
                 <div src="" alt="foto de tu meme" class="imagen__clase" id="imagen"></div><!-- CAJA DE IMAGEN -->
                 <h2 class="txt__abajo texto__oculto" id="abajo">Texto de Abajo</h2>
             </div>
-            <button class="btn__descarga" id="btn--descarga"><i class="fa-solid fa-download"></i> Descargar meme</button><!-- poner -->
+            <button class="btn__descarga" id="btn--descarga" tabindex="3"><i class="fa-solid fa-download"></i> Descargar meme</button><!-- poner -->
     </div>
-    <aside class="panel__generador" ><!-- Panel derecho-->
-    <!--  VERRR ya que no tiene en el tp de escritorio y en movil hago scroll <div class="btn-cerrar">
-            <button  class="cierre__boton">x</button>
-        </div> -->
+    <aside class="panel__generador aside__claro aside__oscuro" ><!-- Panel derecho-->
         <section class="imagen__aside"><!-- Seccion IMAGEN -->
             <div class="url__subirArchivo">
                 <h3 class="titulo__panel">IMAGEN</h3>
@@ -187,8 +184,7 @@
                 name="texto__inferior"
                 id="texto__inferior"
                 class="texto__inferior"
-                placeholder="TEXTO INFERIOR">
-                </textarea>
+                placeholder="TEXTO INFERIOR"></textarea>
                 <div class="texto__superior__inferior"><!-- tilde SIN TEXTO INFERIOR con ckeckbox-->
                     <input type="checkbox" 
                     id="sin__texto--inferior">
@@ -237,8 +233,9 @@
                         <input type="color" 
                         name="color" 
                         id="fondo__color" 
-                        value="#FFFFFF">
-                        <span id="fondo__texto">#FFFFFF</span>
+                        value="#e5e1da">
+                        <span id="fondo__texto">#e5e1da
+                        </span>
                 </div>
             </div>
                 <div class="sin__fondo--txt">
@@ -274,9 +271,9 @@
                 <select name="interlineado" id="interlineado__texto" class="interlineado__texto">
                     <option value="0.8">0.8</option>
                     <option value="1">1</option>
+                    <option value="1.25">1.25</option>
                     <option value="1.5" selected>1.5</option>
-                    <option value="2">2</option>
-                    <option value="2.2">2.5</option>
+                    <option value="1.75">1.75</option>
                 </select>
             </div>
 

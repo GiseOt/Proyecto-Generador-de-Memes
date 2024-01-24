@@ -1,34 +1,44 @@
 // MODOS CLARO Y OSCURO
 document.addEventListener('DOMContentLoaded', () => {
-    const botonModoClaro = document.getElementById('modo-claro'); 
-    const botonModoOscuro = document.getElementById('modo-oscuro');
-    const modoBody = document.body;
-    const header = document.querySelector('header');
+  const botonModoClaro = document.getElementById('modo-claro'); 
+  const botonModoOscuro = document.getElementById('modo-oscuro');
+  const modoBody = document.body;
+  const header = document.querySelector('header');
+  const aside = document.querySelector('aside');
 
+  const activarModoClaro = () => {
+    modoBody.classList.add('modo--Claro');
+    modoBody.classList.remove('modo--Oscuro');
+    header.classList.add('modo--claro__header');
+    aside.classList.add('aside__claro');
+    aside.classList.remove('aside__oscuro');
+
+    botonModoOscuro.style.display = 'inline-flex';
+    botonModoOscuro.style.alignItems = 'center';
+    botonModoOscuro.style.justifyContent = 'center';
     botonModoClaro.style.display = 'none';
+  };
 
-    botonModoOscuro.addEventListener('click', () => { //cambio a oscuro
-        modoBody.classList.add('modo--Oscuro');
-        modoBody.classList.remove('modo--Claro');
-        header.classList.remove('modo--claro__header');
+  activarModoClaro(); //mi modo claro por defecto
 
-        botonModoOscuro.style.display = 'none';
-        botonModoClaro.style.display = 'inline-flex';
-        botonModoClaro.style.alignItems = 'center'; 
-        botonModoClaro.style.justifyContent = 'center'; 
-    });
+  botonModoOscuro.addEventListener('click', () => { // Cambio a oscuro
+      modoBody.classList.add('modo--Oscuro');
+      modoBody.classList.remove('modo--Claro');
+      header.classList.remove('modo--claro__header');
+      aside.classList.add('aside__oscuro');
+      aside.classList.remove('aside__claro');
 
-    botonModoClaro.addEventListener('click', () => { //cambio a claro
-        modoBody.classList.add('modo--Claro');
-        modoBody.classList.remove('modo--Oscuro');
-        header.classList.add('modo--claro__header');
+      botonModoOscuro.style.display = 'none';
+      botonModoClaro.style.display = 'inline-flex';
+      botonModoClaro.style.alignItems = 'center'; 
+      botonModoClaro.style.justifyContent = 'center'; 
+  });
 
-        botonModoOscuro.style.display = 'inline-flex';
-        botonModoOscuro.style.alignItems = 'center';
-        botonModoOscuro.style.justifyContent = 'center';
-        botonModoClaro.style.display = 'none';
-    });
+  botonModoClaro.addEventListener('click', activarModoClaro);
 });
+
+
+
 
  // CARGAR IMAGEN CON LIBRERIA Y DESCARGAR
 document.addEventListener("DOMContentLoaded", function () {
@@ -75,7 +85,7 @@ document.querySelector('.url__imagen').addEventListener('input', actualizarImage
 
 //SCROLL CON WINDOWS
 
-document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', () => {
   const btnImagen = document.querySelector('.btn-modos .imagen');
   const btnTexto = document.querySelector('.btn-modos .texto');
   const imagenAside = document.querySelector('.imagen__aside');
@@ -256,13 +266,18 @@ const texAreaInf = document.getElementById('texto__inferior');
 
 // h2 aca cambia
 
-const actualizarTextos = () =>{
-  textSup.innerText = texAreaSup.value;
-  textInf.innerText = texAreaInf.value;
+const actualizarTextos = (event) => {
+  const textoModificado = event.target.value;
+
+  if (event.target === texAreaSup) {
+    textSup.innerText = textoModificado;
+  } else if (event.target === texAreaInf) {
+    textInf.innerText = textoModificado;
+  }
 }
 
-texAreaSup.addEventListener('input', actualizarTextos);// el evento arriba
-texAreaInf.addEventListener('input', actualizarTextos);// el evento abajo
+texAreaSup.addEventListener('input', actualizarTextos);
+texAreaInf.addEventListener('input', actualizarTextos)
 
 
 //Sin textos Superior / Inferior
@@ -292,6 +307,15 @@ sinTextoSuperior.addEventListener('change', textoCheked);
 sinTextoInferior.addEventListener('change', textoCheked);
 
 
+const posicionTexto = () => {
+  if ($('text-no-background-checkbox').checked) {
+    $('top-text').style.position = 'absolute'
+    $('bottom-text').style.position = 'absolute'
+  } else {
+    $('top-text').style.position = 'static'
+    $('bottom-text').style.position = 'static'
+  }
+}
 //FUENTES
 
 
@@ -402,11 +426,12 @@ oscuroBtn.addEventListener('click', () => {
 const espaciado = () => {
   const espaciadoTexto = document.getElementById('espaciado__txt').value;
   textSup.style.letterSpacing = `${espaciadoTexto}px`
- textInf.style.letterSpacing = `${espaciadoTexto}px `
+  textInf.style.letterSpacing = `${espaciadoTexto}px `
 }
 //el evento
 
 document.getElementById('espaciado__txt').addEventListener('input', espaciado);
+
 
 //INTERLINEADO
 
