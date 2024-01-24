@@ -319,29 +319,29 @@ const posicionTexto = () => {
 //FUENTES
 
 
-        const fuentes = document.getElementById('fuente');
+const fuentes = document.getElementById('fuente');
 
-        const fuentesTexto = () => {
-          const fuenteSeleccionada = fuentes.value;
-          textSup.style.fontFamily = fuenteSeleccionada;
-          textInf.style.fontFamily = fuenteSeleccionada;
-        }
+const fuentesTexto = () => {
+  const fuenteSeleccionada = fuentes.value;
+  textSup.style.fontFamily = fuenteSeleccionada;
+  textInf.style.fontFamily = fuenteSeleccionada;
+}
 
-        // evento
-        fuentes.addEventListener('change', fuentesTexto);
+// Evento
+  fuentes.addEventListener('change', fuentesTexto);
 
 //TAMAÑO TEXTO
 
 const tamanioTextoInput = document.getElementById('tamaño__texto--id');
 
-        const actualizarTamanioTexto = () => {
-          const tamanioTexto = tamanioTextoInput.value + 'px'; //el numero mas el pixel
-          textSup.style.fontSize = tamanioTexto;
-          textInf.style.fontSize = tamanioTexto;
-        }
+  const actualizarTamanioTexto = () => {
+      const tamanioTexto = tamanioTextoInput.value + 'px'; //el numero mas el pixel
+      textSup.style.fontSize = tamanioTexto;
+      textInf.style.fontSize = tamanioTexto;
+}
 
-        //el evento
-        tamanioTextoInput.addEventListener('input', actualizarTamanioTexto);
+  //El evento
+    tamanioTextoInput.addEventListener('input', actualizarTamanioTexto);
 
 // LA ALINEACION
 
@@ -428,7 +428,7 @@ const espaciado = () => {
   textSup.style.letterSpacing = `${espaciadoTexto}px`
   textInf.style.letterSpacing = `${espaciadoTexto}px `
 }
-//el evento
+//El evento
 
 document.getElementById('espaciado__txt').addEventListener('input', espaciado);
 
@@ -442,3 +442,26 @@ const interlineado = () => {
 }
 
 document.getElementById('interlineado__texto').addEventListener('change', interlineado);
+
+//BOTONES CIERRE
+
+document.addEventListener('DOMContentLoaded', () => {
+  const btnCerrarImagen = document.getElementById('cerrar__panelImg');
+  const btnCerrarTexto = document.getElementById('cerrar__panelText');
+  const panelImagen = document.querySelector('.imagen__aside');
+  const panelTexto = document.querySelector('.texto__aside');
+
+  // se oculta
+  const ocultarPanel = (panel) => {
+    panel.style.display = 'none';
+  };
+
+  // evento
+  btnCerrarImagen.addEventListener('click', () => {
+    ocultarPanel(panelImagen);
+  });
+
+  btnCerrarTexto.addEventListener('click', () => {
+    ocultarPanel(panelTexto);
+  });
+});

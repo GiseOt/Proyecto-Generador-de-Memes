@@ -31,6 +31,7 @@
 }
 
 /************* HEADER **************/
+
 header{
     background-color:rgb(28, 12, 91);
     width: calc(100% + 40px);
@@ -42,16 +43,19 @@ header{
     gap: 15px;
     margin-bottom: 30px;
 }
+
 .modo--claro__header{
     background-color:rgb(145, 107, 191) ;
 }
 
 /*BOTON HEADER*/
+
 .btn-modos{
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .btn-modos button{
     display: flex;
     justify-content: center;
@@ -65,6 +69,16 @@ header{
     background: rgb(174,214,238);
     background: radial-gradient(circle, rgba(174,214,238,0.9780287114845938) 29%, rgba(148,187,233,1) 85%);
     transition-duration: 1s;
+}
+
+/*  ESCRITORIO H1*/
+
+@media (min-width: 970px) {
+.btn-modos button{
+    gap: 4px;
+    width:100px;
+    ;
+}
 }
 
 .btn-modos button:hover{
@@ -145,6 +159,7 @@ h1 {
 }
 
 /*  ESCRITORIO IMAGEN__CLASE*/
+
 @media (min-width: 970px) {
     .imagen__clase {
         width:550px;
@@ -213,17 +228,18 @@ h1 {
 }
 
 /*************ASIDE -- PANELES claro/oscuro----*************/
+
 .aside__claro {
     background-color:rgb(92, 70, 156) ;  
-    padding-inline: 10px;
 }
 
 .aside__oscuro {
     background-color:rgb(66, 71, 105);  
-    padding-inline: 10px;
+    ;
 }
 
 /* ASIDE ESCRITORIO*/
+
 @media (min-width: 970px) {
     aside {
         position: absolute;
@@ -234,15 +250,42 @@ h1 {
 }
 
 /*/////////****PANEL SECCIONES*****/
+
 section{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
     margin-block: 40px;
+    padding-inline: 10px
 }
 
+/* SECCION*/
+
+@media (min-width: 970px) {
+    section{
+        margin-block: 25px; 
+    }
+}
+
+.boton__paneles{
+    display:none ;
+}
+
+/* BOTON CIERRE ESCRITORIO*/
+
+@media (min-width: 970px) {
+    .boton__paneles{
+        width: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50px;
+
+    }
+}
 /* Todos los divs de Seccion mismo diseño*/
+
 section div{
     display: flex;
     flex-direction: column;
@@ -252,6 +295,7 @@ section div{
 }
 
 /*** BOTONES SECCIONES***/
+
 section button {
     background-color:  rgb(182, 33, 254);
     color: white;
@@ -271,11 +315,13 @@ section button {
     background-color: rgb(154, 127, 187);
 }
 /*******************FONDO*****************************/
+
 .fondo__imagen{
     display: flex;
     flex-direction: row;
 }
 /*****INPUT COLOR***/
+
 input[type="color"] { 
     width: 30px;
     height: 30px;
@@ -300,6 +346,7 @@ input[type='range'] {
 }
 
 /*BOTON PARA RESTABLECER FILTRO */
+
 .caja__filtros button {
     width: 120px;
     height: 51px;
@@ -313,11 +360,13 @@ input[type='range'] {
 /************************ TEXTO******************/
 
 /* BOTON INPUT TAMANO TEXTO*/
+
 .tamaño__texto, .mezcla__fondo{
     width: 100px;
 }
 
 /**TEXTAREA***/
+
 textarea{
     text-align: center;
     padding-top: 10px;
@@ -326,6 +375,7 @@ textarea{
 
 
 /*** ALINEACION*/
+
 .opciones-alineacion button{
     width: 20px;
     text-align: center;
@@ -353,6 +403,7 @@ textarea{
 }
 
 /*************** COLOR *******/
+
 .texto__color{
     background-color:rgba(182, 33, 254, 0.5);
     display: flex;
@@ -365,7 +416,9 @@ textarea{
 }
 
 /******** CONTORNO********/
+
 /* div de los botones*/
+
 .contornobtn{
     display: flex;
     flex-direction: row;

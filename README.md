@@ -47,4 +47,4 @@ Iconos proporcionados por [FontAwesome](https://fontawesome.com/icons) para darl
 
 ## ¡A Divertirse! 🎨
 
-Este proyecto fue creado con amor por [Gisella Ortiz de la Tabla](ponerurl). ¡Que la creatividad fluya y disfrutes creando memes únicos con el Generador de Memes! 🚀
+Este proyecto fue creado con amor por [Gisella Ortiz de la Tabla](https://github.com/GiseOt). ¡Que la creatividad fluya y disfrutes creando memes únicos con el Generador de Memes! 🚀
