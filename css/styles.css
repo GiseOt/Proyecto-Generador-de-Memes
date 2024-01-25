@@ -430,6 +430,12 @@ textarea{
 
 }
 
+@media (min-width: 970px) {
+    .texto__color{
+        height: 138px;
+    }
+    }
+
 /******** CONTORNO********/
 
 /* div de los botones*/
